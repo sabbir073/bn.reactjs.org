@@ -5,14 +5,13 @@ permalink: docs/events.html
 layout: docs
 category: Reference
 ---
+এই রেফারেন্স গাইড `SyntheticEvent` wrapper যা React ইভেন্ট সিস্টেম এর অংশ তা সম্পর্কে ধারণা দেয়। আরও জানতে [হ্যান্ডলিং ইভেন্টস](/docs/handling-events.html) গাইড দেখুন।
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+## ওভারভিউ {#overview}
 
-## Overview {#overview}
+আপনার ইভেন্ট হ্যান্ডলার `SyntheticEvent` এর ইন্সট্যান্স আকারে passed হবে, যা পুরো ব্রাউজার এর ন্যাটিভ ইভেন্ট জুড়ে একটি ক্রস ব্রাউজার wrapper। ব্রাউজার এর ন্যাটিভ ইভেন্ট এর মতই এরও একটি ইন্টারফেস আছে, `stopPropagation()` ও `preventDefault()` সহ, শুধু ইভেন্টগুলি সমস্ত ব্রাউজার জুড়ে অভিন্নভাবে কাজ করা বাদে।
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
-
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+যদি আপনি মনে করেন যেকোনো কারণে আপনার ব্রাউজার এর ভিতরগত ইভেন্টগুলি দরকার, কেবলমাত্র `nativeEvent` attribute দিয়েই তা পেয়ে যাবেন। প্রত্যেক `SyntheticEvent` অবজেক্ট এ নিচের attribute গুলি থাকবে।
 
 ```javascript
 boolean bubbles
@@ -31,7 +30,7 @@ number timeStamp
 string type
 ```
 
-> Note:
+> নোট:
 >
 > As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
 
